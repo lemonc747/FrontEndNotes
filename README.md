@@ -1,2 +1,4 @@
 # JavaScriptCode-
-通读犀牛书，代码练手&amp;整理
+犀牛书
+JavaScript语言精粹
+JavaScript设计模式
