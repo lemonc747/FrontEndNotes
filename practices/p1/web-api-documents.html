@@ -1,0 +1,30 @@
+<style>
+    .highlight{
+        background: black;
+    }
+</style>
+<html>
+    <div>test div</div>
+    <p>heheheheheh1<a>fdfadfdasf</a>$%$%^%^*(**(((</p>
+    <li></li>
+</html>
+<script>
+
+    var p = document.querySelector('p');
+    var text = document.createTextNode("-- content text --");
+    p.appendChild(text);
+    var a = document.querySelector("a");
+    var textClone = text.cloneNode(true);
+    a.appendChild(textClone);
+
+    var div = document.querySelector("div");
+    div.style.color = "white";
+    // div.style.background = "black";
+    div.style.padding = "250px";
+    div.style.textAlign = "center";
+
+    div.setAttribute("class", "highlight");
+
+    var li = document.querySelector('li');
+    li.textContent = "li.textContent";
+</script>
