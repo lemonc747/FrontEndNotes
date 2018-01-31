@@ -77,11 +77,11 @@
             }
             request.send();
             //methode 2
-            fetch(url).then(function(response){
-                response.text().then(function(text){
-                    pre.textContent = text;
-                })
-            });
+            fetch(url).then(function(response) {
+                return response.text()
+              }).then(function(text) {
+                poemDisplay.textContent = text;
+              });
         }
 
         updateVerse("verse1.txt");
