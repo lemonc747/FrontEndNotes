@@ -44,10 +44,7 @@
     end
     ```
 
-## warnings
-1. 不要在配置文件中使用 tab 制表符 ：这将造成解析错误，或倒回到默认设置。请使用空格替代。
-2. Destination 文件夹会在站点建立时被清理
-    - <destination> 的内容默认在站点建立时会被自动清理。不是你创建的文件和文件夹会被删除。你想在 <destination> 保留的文件和文件夹应在 <keep_files> 里指定。不要把<destination> 设置到重要的路径上，而应该把它作为一个暂存区域,从那里复制文件到您的web服务器。
+
 
 
 
@@ -79,6 +76,9 @@ date, category||categories, tags
     - post.title:
     - post.excerpt: 摘要
     - ...
+
+
+
 # plugins
 常用jekyll插件
 ### jekyll-toc
@@ -91,3 +91,38 @@ https://liquid.bootcss.com/
 # References
     - [Liquid template language](https://help.shopify.com/themes/liquid/basics)
     - [How jekyll template work?](http://jekyllcn.com/docs/templates/)
+
+
+# 实践
+一些细节点
+## warnings
+1. 不要在配置文件中使用 tab 制表符 ：这将造成解析错误，或倒回到默认设置。请使用空格替代。
+2. Destination 文件夹会在站点建立时被清理
+    - <destination> 的内容默认在站点建立时会被自动清理。不是你创建的文件和文件夹会被删除。你想在 <destination> 保留的文件和文件夹应在 <keep_files> 里指定。不要把<destination> 设置到重要的路径上，而应该把它作为一个暂存区域,从那里复制文件到您的web服务器。
+
+## jekyll中文目录乱码？
+
+## 配置2
+### _config.yml中设置defaults
+    我们可以在全局配置文件`_config.yml`中设置文章的统一配置，从而避免在每篇文章中设置的繁琐操作。
+    ```
+    defaults:
+    - 
+        scope: 
+            path: "docs/getting-started"
+            type: "test"
+        values:
+            layout: "docs"
+            toc: true
+            group: "getting-started"
+    - 
+        scope: 
+            path: "docs/develop-docs"
+        values:
+            layout: "docs"
+            toc: true
+            group: "develop-docs"
+    ```
+    defaults标签下包含键值对的数组，每个数组代表一个统一配置。
+    - scope表示作用域，属性值会应用到scope下的文章中。path,type
+    - values表示需要设置的属性值，包含预设属性和自定义属性。
