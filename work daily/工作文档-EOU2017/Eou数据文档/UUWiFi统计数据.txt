@@ -1,0 +1,68 @@
+
+数据统计：
+
+概要信息
+________________________________
+
+1.卡交换服务
+	1.当前交换数：{卡交换队列}状态=使用中
+	2.今日交换数：{卡交换队列}mdfTm=今天
+	3.今日活跃设备：{卡交换队列}mdfTm=今天，涉及的设备idxVifiID
+		>> {tbUUWiFiCountDaily}设备活动表 crtTm=今天
+	4.本月活跃设备：...mdfTm=本月
+		>> {tbUUWiFiCountDaily}设备活动表 crtTm=本月
+	5.今日使用卡数：{卡交换队列}mdfTm=今日，涉及的流量卡idxSimCIccId
+		>> {tbSIMCountDaily}流量卡活动表，crtTm=今天
+	6.本月使用卡数：...mdfTm=本月
+		>> {tbSIMCountDaily}流量卡活动表，crtTm=本月
+	7.卡交换节点：{卡交换节点}总数
+	8.有效静态交换策略 ：{卡静态交换策略}总数status=正常
+
+2.	simPool卡池
+	1.卡池设备总数：{卡池设备}总数
+	2.在线设备：{卡池设备}综合状态为在线
+	3.离线设备：...为离线
+	4.卡池组总数：{卡池组}总数
+	5.插槽总数：{卡池插槽}总数
+	6.已插卡数：{卡池插槽}状态=有卡/使用中
+	7.使用中插槽：...状态=使用中
+	8.卡空闲插槽：...状态=有卡
+	9.卡异常插槽：...状态=异常
+
+3.流量卡管理
+	1.卡组数：{流量卡组}总数
+	2.卡总数：{流量卡}总数
+	3.当前空闲卡数：{流量卡}状态=空闲
+	4.当前使用卡数：{流量卡}状态=使用中
+	5.今日使用卡数：{tbSIMCountDaily}mdfTm=今天       
+	6.将到期卡数：{流量卡}的{流量卡组}过期时间expireDate距离今天小于{系统配置项}SIMCARD_EXPIRE_PERIOD       
+	7.无效卡数：{流量卡}状态=禁用/异常/其他等
+	8.今日已用量：{tbSimCountDaily}今日使用量
+	9.剩余流量：{流量卡}restNetData总量
+	10.本月已用量：{tbSimCountDaily}本月使用量
+	11.最近30天{流量卡数}和{流量使用量}统计：
+		{tbSIMCountDaily}近30天每天使用的卡数和流量
+
+4.UUWiFi设备
+	1.所有设备：{UUWiFi设备}总数
+	2.在线设备：{UUWiFi设备}状态=在线
+	3.今日活跃：{tbUUWiFiSession}sessType = 'S' & lastUpdate=今日
+		>> {tbUUWiFiCountDaily}设备活动表 crtTm=今天
+	4.新增设备：{UUWiFi设备}crtTm=今日
+	5.本月活跃：{tbUUWiFiSession}sessType = 'S' & lastUpdate=本月
+		>> {tbUUWiFiCountDaily}设备活动表 crtTm=今天
+	6.本月新增：{UUWiFi设备}crtTm=本月
+	7.设备组：{UUWiFi设备组}总数
+
+5.流量账单	cdr表统计
+	1.今日活跃设备：tbuuwificountdaily                                       
+	2.本月活跃设备：...                                    
+	3.今日活跃用户：tbcountdaily
+	4.本月活跃用户：...
+	5.今日流量总计：tbcountdaily-cntDataSum
+	6.本月流量总计：...
+	7.今日费用总计：tbcountdaily-cost
+	8.本月费用总计: ...
+	9.所有设备：tbvifidevice
+	10.所有用户：tbuser
+
