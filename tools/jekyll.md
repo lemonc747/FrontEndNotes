@@ -102,6 +102,11 @@ https://liquid.bootcss.com/
 
 ## jekyll中文目录乱码？
 
+## 如何排除node_modules目录，但是包含node_modules内的某一个目录
+先exclude node_modules, 再include node_modules/xxx：失败，行不通
+
+另一种方案，在Destination中手动放置字体引用(最好在脚本中，从node_modules中copy进来)，然后在keep_files设置保留.
+
 ## 配置2
 ### _config.yml中设置defaults
     我们可以在全局配置文件`_config.yml`中设置文章的统一配置，从而避免在每篇文章中设置的繁琐操作。
