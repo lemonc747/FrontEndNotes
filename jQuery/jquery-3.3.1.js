@@ -348,6 +348,8 @@ jQuery.extend( {
 	each: function( obj, callback ) {
 		var length, i = 0;
 
+
+		
 		if ( isArrayLike( obj ) ) {
 			length = obj.length;
 			for ( ; i < length; i++ ) {

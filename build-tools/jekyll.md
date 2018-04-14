@@ -1,7 +1,4 @@
 
-126> 45 > 77 
-通用密码gya747283747
-私密gya863002958
 #jekyll
 
 # getting-start
