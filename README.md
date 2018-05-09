@@ -8,6 +8,7 @@ JavaScript代码解析
 - bootstrap
 - jquery
 - to be coninued
+- work daily
 
 ### 目录
 1. [JS权威指南](./JS-TheDefinitiveGuide)
