@@ -1,5 +1,4 @@
-## test
-1. SCSS = CSS3 + SASS？
+## structure
 
 ## 最佳实践
 1. 让嵌套在四层或更少层级内  
