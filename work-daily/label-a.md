@@ -50,3 +50,8 @@ childNode?
 
 节流&防抖&标识开关
 https://juejin.im/post/5a35ed25f265da431d3cc1b1
+
+
+### little probs
+
+vscode全局搜索快捷鍵`ctrl shift f`，取消`搜狗输入法`的所有快捷键，会冲突
