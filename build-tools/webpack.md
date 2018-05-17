@@ -53,6 +53,27 @@ fileName: [name].js
 
 # 实践
 
+### webpack如何向多个目录输出多个文件
+
+#### a
+谢谢你的解答，想了一下午，想出了个解决办法
+首先在定义entry的时候可以，
+entry = {
+"/demo/button": "demo/button/index.jsx"),
+"/demo/grid": "demo/grid/index.jsx")
+}
+然后输出的时候，就能建到指定目录下去了
+#### b
+https://segmentfault.com/q/1010000003991927/a-1020000004088485
+
+var entry = {};
+glob.sync(__dirname+'/dev/**/*.js').forEach(function(name){
+    var n = name.slice(name.lastIndexOf('dev/')+4,name.length-3);
+    entry[n] = name;
+});
+return entry;
+
+
 ### CommonJS模块的私有变量如何运作？
 错误代码：在模块中定义global对象，在其他模块中取出
 ```
