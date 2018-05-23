@@ -79,3 +79,33 @@ var a = localStorage.getItem("aaa");
 页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话，这点和 session cookies 的运行方式不同。
 
 note: 刷新页面和恢复页面不会重置sessionStorage
+
+### 捕捉与冒泡
+
+栗子1：selector选中的元素有嵌套，需要区分父级和子级的事件？
+
+dom结构如下
+- document
+    - main
+        - box(parent)
+        - box
+            - box(child)
+            - box...
+        - box...
+如果使用事件委托，点击子级box都会触发两次事件
+``` javascript
+// 统一委托，在代码中区分，
+$(document).on("click", ".box", function(){});
+// 分开委托，细化selector以区分父子级
+$(document).on("click", ".main>.box", function(){});
+$(document).on("click", ".box>.box", function(){});
+```
+原因：事件委托时，事件是在委托的容器上触发的。
+
+
+### change & prepare
+- reward
+- think
+- direction: 
+ 做人，心态，身体状态，技能
+- 时间管理： 人们浪费着时间，却又渴望更多的时间
