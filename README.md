@@ -3,6 +3,7 @@ JavaScript代码解析
 
 ### structure
 - js api
+- js blog
 - js patterns
 - build tools
 - bootstrap

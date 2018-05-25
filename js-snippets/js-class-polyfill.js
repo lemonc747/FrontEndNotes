@@ -27,3 +27,6 @@ Rectangle.prototype.constructor = Rectangle;
  */
 var obj = {foo:"bar", baz:22};
 var map = new Map(Object.entries(obj));
+
+
+
