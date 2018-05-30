@@ -74,74 +74,40 @@ glob.sync(__dirname+'/dev/**/*.js').forEach(function(name){
 return entry;
 
 
-### CommonJS模块的私有变量如何运作？
-错误代码：在模块中定义global对象，在其他模块中取出
-```
-  // A.js
-  module.exports = {
-    a: 'xxxx',
-    b: 'zzzzz'
-  }
-  //B.js
-  var global = require('A');
-  global.a = 'mmmm';
-```
-原因：module.exports输出数据，而require输入时是exports输出数据的拷贝，也就是clone的副本？？？？
-
-```
-// lib.js
-var counter = 3;
-function incCounter() {
-  counter++;
-}
-function getCounter(){
-  return counter;
-}
-module.exports = {
-  counter: counter,
-  incCounter: incCounter,
-  getCounter: getCounter
-};
-// 这个模块：在多个模块内加载和多次运行后，counter的值是不变的，getCounter()是持续递增的，类似于闭包的私有变量。除非清楚缓存重新加载
-```
-但是，我们可以返回函数，通过函数动态获取私有变量的值。例如getCounter。
-
-理解的关键点：module本身和module.exports是不同的概念。module本质就是一个闭包，module的代码只执行一次，然后require加载的是module.exports输出数据的副本（待考证），所以require每次引入的数据是恒定不变的。但是module本身的私有变量是可能改变的，如上例。
-
-```
-// test.js
+### require的运行机制
+1. 模块的代码仅执行一次，exports的内容被缓存在require.cache中，
+``` javascript
+// a.js
 var obj = {
-    key1: 1111,
-    key2: 2222
+    counter: 3
 }
-
+function incCounter() {
+    obj.counter++;
+}
 module.exports = {
-  getData: function(){
-    return obj;
-  },
-  setData: function(val){
-    obj = val;
-  }
-}
+  counter: obj.counter,
+  obj: obj,
+  incCounter: incCounter,
+};
+// b.js
+var exports = require('./a');
+var counter = require('./a').counter;
+var obj = require('./a').obj;
+var incCounter = require('./a').incCounter;
 
-// 类似的
-function(){
-  var obj = {
-    key1: 1111,
-    key2: 2222
-}
-
-return  {
-  getData: function(){
-    return obj;
-  },
-  setData: function(val){
-    obj = val;
-  }
-}
-}
-
+console.log(counter);  // 3
+console.log(obj.counter); // 3
+incCounter();
+exports.counter = 10;
+console.log(counter); // 10
+console.log(obj.counter); // 4
+//解释：区分exports.counter和exports.obj.counter;
+//1. exports输出后会缓存，后续的所有操作都会影响后面的require
+//1. exports.counter是值类型（数字），不会受到obj.counter值的影响
+//2. exports.obj为引用类型（对象）,修改会保存
+//4. 手动修改exports.counter，修改会保存
 ```
+
 
 查看require实现的源码
 
