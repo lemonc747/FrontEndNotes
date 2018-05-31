@@ -156,3 +156,29 @@ $(document).on("click", ".box>.box", function(){});
 
 
 ```
+
+
+var a = {aa:333, 2:5555: ffff:6666}
+for(var i in a){
+  debugger;
+  console.log(a[i]);
+}
+
+### Fixed bug : document.querySelector can't start with numbers 
+https://stackoverflow.com/questions/37270787/uncaught-syntaxerror-failed-to-execute-queryselector-on-document
+
+You are allowed to use IDs that start with a digit in your HTML5 documents:
+
+The value must be unique amongst all the IDs in the element's home subtree and must contain at least one character. The value must not contain any space characters.
+
+There are no other restrictions on what form an ID can take; in particular, IDs can consist of just digits, start with a digit, start with an underscore, consist of just punctuation, etc.
+
+But querySelector method uses CSS3 selectors for querying the DOM and CSS3 doesn't support ID selectors that start with a digit:
+
+In CSS, identifiers (including element names, classes, and IDs in selectors) can contain only the characters [a-zA-Z0-9] and ISO 10646 characters U+00A0 and higher, plus the hyphen (-) and the underscore (_); they cannot start with a digit, two hyphens, or a hyphen followed by a digit.
+
+Use a value like b22 for the ID attribute and your code will work.
+
+Since you want to select an element by ID you can also use .getElementById method:
+
+document.getElementById('22')
