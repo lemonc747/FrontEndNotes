@@ -2,7 +2,21 @@
 
 es6
 
+FE框架的使用熟悉，以及源码解析
 
+- 思考和理解
+- 有轻重，有取舍
+- 
+为什么？动力是什么？
+- 挣钱，提高生活品质
+- 技术突破，至少保持技术不落后，竞争激烈
+
+为什么没有动力？
+- 技术没有直接转化为收益，他是一个长周期事件
+
+大方向
+1会生活
+2业务技术双驱动
 
 ## 函数参数为对象时
 引用类型，关联原对象
@@ -18,33 +32,39 @@ a.a.aa = 333
 b();// 333
 ```
 
-### 函数下的私有变量，
+### 用来计数的循环变量泄露为全局变量。
 ``` js
-    _defineProperties(){
-        var _value = {};
-        var myproperties = this.const.properties;
-        debugger;
-        var descriptors = {};
-        for(var item in myproperties){
-            var property = myproperties[item];
-            descriptors[item] = {
-                enumerable: true,
-                get: function(){
-                    var result = property.get && property.get instanceof 'function'
-                        && property.get();
-                    return result || _value[item];
-                },
-                set: function(val){
-                    var result = property.set && property.set instanceof 'function'
-                        && property.set(value);
-                    _value[item] = result || val;
-                    console.log("properties.set =>"+item);
-                }
-            }
-        }
-        Object.defineProperties(this.data.properties, descriptors);
-    }
-
+// 最后输出的是10。因为js没有块级作用域，i是全局变量
+var a = [];
+for (var i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6]();
 ```
-set和get中的item，最后全部是一样的，是myproperties的最后一个属性。
-因为item不是即时计算的，而是属于私有变量
+上面代码中，变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i。每一次循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指向的就是全局的i。也就是说，所有数组a的成员里面的i，指向的都是同一个i，导致运行时输出的是最后一轮的i的值，也就是 10。
+
+如果使用let，声明的变量仅在块级作用域内有效，最后输出的是 6。
+```js
+//输出对应的正确值
+var a = [];
+for (let i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 6
+```
+
+另外，for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
+```js
+for (let i = 0; i < 3; i++) {
+  let i = 'abc';
+  console.log(i);
+}
+// abc
+// abc
+// abc
+```
+上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。

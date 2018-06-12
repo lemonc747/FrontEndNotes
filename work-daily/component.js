@@ -14,7 +14,7 @@ var common = require('../utils/common'),
  * 
  * 
  */
-var Component = function(options, child_ptions){
+var Component = function(options, child_ptions){        
     this._options = Object.assign({}, child_ptions, typeof options === 'object' && options);
     this._super_init();
     window.test = this;
