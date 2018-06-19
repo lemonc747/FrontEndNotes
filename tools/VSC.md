@@ -1,4 +1,5 @@
 ### 用户设置
+将tab键设置为两个空格：比较适用于代码
 ```json
 {
   // 自动保存
@@ -9,3 +10,5 @@
   "editor.detectIndentation": false
 }       
 ```
+
+ctrl+d改为删除行：
