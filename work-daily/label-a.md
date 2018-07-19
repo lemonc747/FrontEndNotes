@@ -182,3 +182,41 @@ Use a value like b22 for the ID attribute and your code will work.
 Since you want to select an element by ID you can also use .getElementById method:
 
 document.getElementById('22')
+
+
+### 可以滚动但是隐藏滚动条
+  xxx::-webkit-scrollbar{
+    display:none;
+  }
+
+
+### 前端如何优化图片尺寸
+http://imweb.io/topic/568b20194c44bcc56092e415
+1. 转换为webp格式
+
+### 阻塞渲染和内容闪现
+https://segmentfault.com/a/1190000011503284
+关键的css应该link标签加载文件头部
+
+### css实现渐变色
+https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Using_CSS_gradients
+
+background:linear-gradient(to top,#2783f0,#2fa9ea)
+background:linear-gradient(to top,#ffffff,#80b9f4,#ffffff)
+#80b9f4
+
+### css实现菜单的滑动显示和隐藏
+https://www.tangshuang.net/1669.html
+
+1. 总的来说，submenu添加transition控制height，通过class控制
+2. overflow：hidden, submenu设置overflow可以防止子菜单显示在父菜单外面，导致文字重叠，这一点很重要
+3. transition属性不适用与display，auto等属性
+4. auto属性一种变通处理方式：例如height，js计算出height设置在外联属性style中，css的某一种状态设置height important，这样就能动态切换height了;
+熟悉：transition，tranform， animation
+
+详情见统一门户的菜单实现
+
+### tooltip的实现
+模仿bs的tooltipJS
+
+实现card样式
