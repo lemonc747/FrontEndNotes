@@ -24,3 +24,14 @@ function reload() {
       void(close());  
   };  
 }
+
+
+var a = `<script type="text/javascript" src="./js/vconsole.min.js">
+</script><script src="http://localhost:9000/common/js/cordova/plugins/cordova-plugin-camera/www/CameraConstants.js">
+</script><script src="http://localhost:9000/common/js/cordov1a/plugins/cordov1a-plugin-camera/www/CameraPopoverOptions.js">
+</script><script src="http://localhost:9000/common/js/cordova/plugins/cordova-plugin-camera/www/Camera.js">
+</script><script src="http://localhost:9000/common/js/cordova/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js"></script>
+<script src="http://localhost:9000/common/js/cordova/plugins/co1rdova-plugin-file/www/DirectoryEntry.js"></script>
+<script src="http://localhost:9000/common/js/cordova/plugins/cordova-plugin-file/www/DirectoryReader.js"></script>
+<script src="http://localhost:9000/common/js/cordova/plugins/cordova-plugin-network-information/www/Connection.js">`;
+var result = a.replace(/<script.*?[cordova].*?><\/script>/, '哈哈1')
