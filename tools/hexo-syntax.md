@@ -60,7 +60,7 @@ Front-matter 是文件最上方以 --- 分隔的区域，用于指定单个文�
 - API: 参考https://hexo.io/zh-cn/docs/tag-plugins.html
 - 引用块：quote
 - 代码块： code
-- image:{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
+- image:`{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}`
 
 ### 资源文件夹
 - 设置：post_asset_folder: true，之后在你hexo new layout title创建文章时会创建资源文件夹目录
