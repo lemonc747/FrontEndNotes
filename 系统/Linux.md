@@ -89,3 +89,13 @@ chmod [-R] xyz 文件或目录
 选项与参数：
 - -m ：配置文件的权限
 - -p ：创建多级目录，帮助你直接将所需要的目录(包含上一级目录)递归创建起来
+
+### rmdir 删除空的目录
+选项和参数
+- -p ：删除空目录，若上级目录为空也删除。（实际测试中不对，待验证）
+
+### cp 复制文件或目录
+```sh
+[root@www ~]# cp [-adfilprsu] 来源档(source) 目标档(destination)
+[root@www ~]# cp [options] source1 source2 source3 .... directory
+```

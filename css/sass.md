@@ -30,7 +30,7 @@
 - 值列表，用空格或逗号分隔（例如 1.5em 1em 0 2em、Helvetica, Arial, sans-serif）
 
 数学运算之/      
-```
+```scss
 p {     
   font: 10px/8px;              // 纯 CSS，不是除法运算   
   $width: 1000px;
@@ -66,4 +66,6 @@ I如果文件名以 http:// 开头。
 
 - 查询分销和代理比例
 - 检查父级：
+
+
 
