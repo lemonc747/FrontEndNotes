@@ -34,3 +34,8 @@ fetch(url, options)
   .then(response => ...);
 ```
 todo：需要更详细的理解
+
+
+## 4. 请求头之`Accept: application/json, text/javascript, */*; q=0.01`
+描述：antd-pro中所有请求头的`accept:application/json`，这时其中一个请求出现了406错误
+
