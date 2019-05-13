@@ -132,3 +132,17 @@ test({ 1 }) // 1 5
   }
   test(y = 3) // 3
 ```
+
+
+# 4.静态属性和方法
+```js
+class Foo {
+}
+
+Foo.prop = 1;
+Foo.prop // 1
+//Foo类定义了一个静态属性prop,只有这种写法可行，因为 ES6 明确规定，Class 内部只有静态方法，没有静态属性。
+```
+
+# 5.@注解
+http://es6.ruanyifeng.com/#docs/decorator
