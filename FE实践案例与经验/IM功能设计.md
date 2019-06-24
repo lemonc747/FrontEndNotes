@@ -38,4 +38,10 @@ const namespaces = {
   ...
 }
 
+// 选中的集群和命名空间，格式同理
+const selectedClusters = ...
+const selectedNS = ...
+
+1. componentDidMount => 获取clusters
+2. supplier.words => 
 ```

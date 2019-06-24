@@ -4,6 +4,18 @@
 2. 这里的依赖都是指dependecies，所有的devDependencies都只是生产依赖
 2. app的依赖都是开发依赖，需要打包到代码中
 4. electron的依赖都是生产依赖，不需要带包到代码中
+
+## 参考
+1. [案例](https://github.com/sorrycc/dva-boilerplate-electron)
+2. [Electron 应用实战 (架构篇)](https://github.com/sorrycc/blog/issues/13)
+
+## 方案
+在renderer文件的webpack配置中
+```
+import { dependencies as externals } from "../app/package.json";
+
+```
+
 ## webpack externals
 防止将某些 import 的包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展依赖(external dependencies)。
 
