@@ -1,0 +1,43 @@
+<html>
+  <style>
+  #canvas {
+    /* width:200px;
+    height: 200px; */
+  }
+  </style>
+<body>
+    <canvas id='canvas'>111</canvas>
+</body>
+<script>
+  function draw() {
+    var ctx = document.getElementById('canvas').getContext('2d');
+    var img = new Image();
+    img.onload = function(){
+      
+      ctx.beginPath();
+      ctx.moveTo(30,96);
+      ctx.lineTo(70,66);
+      ctx.lineTo(103,76);
+      ctx.lineTo(170,15);
+      ctx.lineTo(170,96);
+      ctx.lineTo(30,96);
+      // ctx.fill();
+      // ctx.beginPath();
+      // ctx.arc(0,0,60,0,Math.PI*2,true);
+      ctx.clip();
+      // ctx.drawImage(img,0,0);
+      ctx.drawImage(img, 33, 71, 104, 124, 21, 20, 87, 104);
+//       ctx.fillStyle="green";
+// ctx.fillRect(0,0,150,100);
+      // ctx.fill();
+      // ctx.stroke();
+      // ctx.clip()
+    }
+    img.src = 'https://avatars3.githubusercontent.com/u/47840380?s=400&v=4';
+  }
+draw();
+</script>
+
+</html>
+
+<img class=&quot;screenshot&quot; filepath=&quot;/Users/shinystars/Library/Application Support/msjw-im-client-root/easemob/screenShot/1562663107331.png&quot; src=&quot;file:///Users/shinystars/Library/Application Support/msjw-im-client-root/easemob/screenShot/1562663107331.png&quot;&gt;
