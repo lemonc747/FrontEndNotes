@@ -29,3 +29,11 @@ function readFileWithPromise(file){
 ```
 
 ## 问题2：多次触发回调，例如onProress返回下载进度，如何用redux-saga处理
+
+
+
+
+
+# Promise场景应用场景
+
+## 1. 请求嵌套，上一个Promise的结果是下一个Promise的参数
