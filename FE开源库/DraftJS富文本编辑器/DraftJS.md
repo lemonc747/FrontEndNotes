@@ -191,7 +191,6 @@ const HandleEmoji = (props) => {
         <img style={{ height: '16px', width: '16px' }} alt='' src={src} />
         {children}
       </span>);
-    // return <span className='emojiSpan' title={code} style={{ backgroundImage: `url(${src})` }}>{children}</span>
   }
   // @gya-tips：返回原文本，否则解析了空格会导致@无法触发
   return decoratedText; // children;
