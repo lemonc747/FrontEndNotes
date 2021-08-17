@@ -36,7 +36,8 @@ const EmojiSpan = (props) => {
   }
   // return <span className='emojiSpan' style={{ backgroundImage: `url(${emoji0})` }}>{children}</span>
   // css sprits
-  return <span className='emojiSpan' style={{ backgroundImage: `url(${require(`../../../assets/face/link_face_${index}.png`)})` }}>{children}</span>
+  const requireUrl = require(`../../../assets/face/link_face_${index}.png`);
+  return <span className='emojiSpan' style={{ backgroundImage: `url(${requireUrl})` }}>{children}</span>
 }
 ```
 
